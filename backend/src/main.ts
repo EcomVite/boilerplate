@@ -11,6 +11,8 @@ async function bootstrap() {
 	});
 	app.setGlobalPrefix("api");
 
-	await app.listen(3000);
+	await app.listen(process.env.PORT || 8080, async () => {
+		console.log(`Application is running on: http://127.0.0.1:${process.env.PORT || 8080}/api`);
+	});
 }
 bootstrap();
