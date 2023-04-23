@@ -1,2 +1,4 @@
-# boilerplate
-boilerplate for react.js (typescript) frontend, nestJs, and Prisma SQLite
+# toot
+gymip fitness community
+
+toot is the sound we do when lifting heavy weight

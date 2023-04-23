@@ -9,3 +9,25 @@ datasource db {
     provider = "sqlite"
     url      = env("DATABASE_URL")
 }
+
+model User {
+    id         String       @id @default(uuid())
+    email      String       @unique
+    firstName  String?
+    lastName   String?
+    picture    String?
+    createdAt  DateTime     @default(now())
+    updatedAt  DateTime     @updatedAt
+    googleAuth GoogleAuth[]
+}
+
+model GoogleAuth {
+    id          String   @id @default(uuid())
+    googleId    String   @unique
+    email       String   @unique
+    accessToken String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId      String
+}
